@@ -1,0 +1,26 @@
+{
+  "name": "personal-budget",
+  "version": "1.0.0",
+  "description": "The path to NGInx main folder: /usr/share/nginx/html",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnawale/personal-budget.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnawale/personal-budget/issues"
+  },
+  "homepage": "https://github.com/mnawale/personal-budget#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "chart.js": "^2.9.3",
+    "express": "^4.17.1"
+  }
+}
