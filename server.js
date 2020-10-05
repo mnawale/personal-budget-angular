@@ -4,6 +4,7 @@ const express = require('express');
 const app=express();
 const port=3000;
 var data_json =fs.readFileSync('./myBudget.json','utf8')
+//const budget =require('./myBudget.json');
 var budget =JSON.parse(data_json);
 
 app.use('/',express.static('public'));
