@@ -1,25 +1,16 @@
+const bodyParser = require('body-parser');
+var fs =require('fs');
 const express = require('express');
 const app=express();
 const port=3000;
+var data_json =fs.readFileSync('./myBudget.json','utf8')
+var budget =JSON.parse(data_json);
 
 app.use('/',express.static('public'));
 
-const budget = {
-   myBudget:[
-    {
-        title: 'Eat out',
-        budget: 30
-    },
-    {
-        title: 'Rent',
-        budget: 300
-    },
-    {
-        title: 'Grocery',
-        budget: 110
-    },
-]
-};
+//app.use(bodyParser.json());
+
+
 app.get('/Hello',(req,res) => {
     res.send('Hello world!');
 });
