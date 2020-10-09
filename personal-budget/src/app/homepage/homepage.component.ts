@@ -7,6 +7,7 @@ import { Chart } from 'chart.js';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
+
 export class HomepageComponent implements AfterViewInit {
 
   public dataSource = {
@@ -32,7 +33,8 @@ export class HomepageComponent implements AfterViewInit {
 };
 
 
-  constructor(private http: HttpClient) { }
+  constructor (private http: HttpClient){}
+
 
   ngAfterViewInit(): void {
     this.http.get('http://localhost:3000/budget')
@@ -45,12 +47,14 @@ export class HomepageComponent implements AfterViewInit {
     });
 
   }
+
   createChart() {
     var ctx = document.getElementById('myChart');
     var myPieChart = new Chart(ctx, {
     type: 'pie',
-    data: this.dataSource
+    data: this.dataSource,
   });
+
 }
 
 }
