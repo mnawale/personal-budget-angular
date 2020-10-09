@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js';
 
@@ -7,7 +7,7 @@ import { Chart } from 'chart.js';
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent implements AfterViewInit {
 
   public dataSource = {
     datasets: [
@@ -34,7 +34,7 @@ export class HomepageComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.http.get('http://localhost:3000/budget')
     .subscribe((res: any) => {
       for (var i=0;i <res.myBudget.length;i++) {
