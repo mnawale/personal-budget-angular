@@ -1,14 +1,13 @@
 {
-    "myBudget": [
-        { "title": "Eat out","budget": 30 },
-        { "title": "Rent", "budget": 330},
-        { "title": "Car_Payments","budget": 120},
-        { "title": "Grocery","budget": 100},
-        { "title": "Travel","budget": 150},
-        { "title": "Education","budget": 200},
-        { "title": "Shopping","budget": 100},
-        { "title": "Insurance","budget": 75}, 
-        { "title": "Fitness","budget": 40}
-    ]
-}
- 
+        "myBudget": [
+            { "title": "Eat out","budget": 30 },
+            { "title": "Rent", "budget": 330},
+            { "title": "Car_Payments","budget": 120},
+            { "title": "Grocery","budget": 100},
+            { "title": "Travel","budget": 150},
+            { "title": "Education","budget": 200},
+            { "title": "Shopping","budget": 100},
+            { "title": "Insurance","budget": 75}, 
+            { "title": "Fitness","budget": 40}
+        ]
+    }

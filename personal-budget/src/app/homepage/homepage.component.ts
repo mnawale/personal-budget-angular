@@ -1,6 +1,7 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js';
+import { DataJsonService } from '../data-json.service';
 
 @Component({
   selector: 'pb-homepage',
@@ -8,7 +9,7 @@ import { Chart } from 'chart.js';
   styleUrls: ['./homepage.component.scss']
 })
 
-export class HomepageComponent implements AfterViewInit {
+export class HomepageComponent implements OnInit {
 
   public dataSource = {
     datasets: [
@@ -28,26 +29,23 @@ export class HomepageComponent implements AfterViewInit {
         }
     ],
 
-
     labels: []
 };
 
+   // public mbudget = [];
 
-  constructor (private http: HttpClient){}
-
-
-  ngAfterViewInit(): void {
-    this.http.get('http://localhost:3000/budget')
+  constructor(private budgetdata: DataJsonService) { }
+  ngOnInit(): void {
+    this.budgetdata.getBudget()
     .subscribe((res: any) => {
       for (var i=0;i <res.myBudget.length;i++) {
         this.dataSource.datasets[0].data[i] = res.myBudget[i].budget;
         this.dataSource.labels[i] = res.myBudget[i].title;
         this.createChart();
-    }
-    });
-
+      }
+        console.log(this.dataSource);
+  });
   }
-
   createChart() {
     var ctx = document.getElementById('myChart');
     var myPieChart = new Chart(ctx, {
@@ -56,5 +54,4 @@ export class HomepageComponent implements AfterViewInit {
   });
 
 }
-
 }
