@@ -16,6 +16,9 @@ import { LoginComponent } from './login/login.component';
 import { P404Component } from './p404/p404.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ContactComponent } from './contact/contact.component';
+import { BarComponent } from './bar/bar.component';
+import { PieComponent } from './pie/pie.component';
+import { ScatterComponent } from './scatter/scatter.component';
 
 
 
@@ -32,7 +35,10 @@ import { ContactComponent } from './contact/contact.component';
     LoginComponent,
     P404Component,
     BreadcrumbsComponent,
-    ContactComponent
+    ContactComponent,
+    BarComponent,
+    PieComponent,
+    ScatterComponent
   ],
   imports: [
     BrowserModule,

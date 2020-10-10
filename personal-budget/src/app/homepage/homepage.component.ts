@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js';
 import { DataJsonService } from '../data-json.service';
+import * as d3 from 'd3';
+import * as d3Scale from 'd3';
+import * as d3Shape from 'd3';
+import * as d3Array from 'd3';
+import * as d3Axis from 'd3';
+
 
 @Component({
   selector: 'pb-homepage',
@@ -30,9 +36,9 @@ export class HomepageComponent implements OnInit {
     ],
 
     labels: []
-};
+  };
 
-   
+
 
   constructor(private budgetdata: DataJsonService) { }
   ngOnInit(): void {
@@ -54,5 +60,9 @@ export class HomepageComponent implements OnInit {
     data: this.dataSource,
   });
 
-}
+  }
+
+
+
+
 }
