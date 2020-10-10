@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js';
-import { DataJsonService } from '../data-json.service';
-import * as d3 from 'd3';
-import * as d3Scale from 'd3';
-import * as d3Shape from 'd3';
-import * as d3Array from 'd3';
-import * as d3Axis from 'd3';
+import { DataService } from '../data.service'
+
 
 
 @Component({
@@ -39,30 +35,29 @@ export class HomepageComponent implements OnInit {
   };
 
 
+ constructor(private budgetdata: DataService) { }
 
-  constructor(private budgetdata: DataJsonService) { }
-  ngOnInit(): void {
-    this.budgetdata.getBudget()
-    .subscribe((res: any) => {
-      for (var i=0;i <res.myBudget.length; i++) {
-        this.dataSource.datasets[0].data[i] = res.myBudget[i].budget;
-        this.dataSource.labels[i] = res.myBudget[i].title;
+ ngOnInit(): void {
+  this.budgetdata.getChartData()
+  .subscribe((res: any) => {
+    for (var i=0;i <res.myBudget.length; i++) {
+      this.dataSource.datasets[0].data[i] = res.myBudget[i].budget;
+      this.dataSource.labels[i] = res.myBudget[i].title;
 
-      }
-        console.log(this.dataSource);
-        this.createChart();
-  });
-  }
-  createChart() {
-    var ctx = document.getElementById('myChart');
-    var myPieChart = new Chart(ctx, {
-    type: 'pie',
-    data: this.dataSource,
-  });
+    }
+      console.log(this.dataSource);
+      this.createChart();
+});
+}
 
-  }
+createChart() {
+  var ctx = document.getElementById('myChart');
+  var myPieChart = new Chart(ctx, {
+  type: 'pie',
+  data:this.dataSource,
+}
+);
 
-
-
+}
 
 }
