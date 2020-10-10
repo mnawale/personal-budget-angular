@@ -15,7 +15,7 @@ export class DataJsonService {
 
   constructor(private http: HttpClient) { }
 
-  getBudget(): Observable<dataSource1[]>{
-    return this.http.get<dataSource1[]>(this._url);
+  getBudget(): Observable<any>{
+    return this.http.get(this._url);
   }
 }
